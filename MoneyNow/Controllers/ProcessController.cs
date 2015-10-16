@@ -94,7 +94,7 @@ namespace MoneyNow.Controllers
                 response.error_message = "Khoi tao giao dich thanh cong";
                 tran_info.status = "CASHIN";
                 tran_info.partner_trans_id = response.url_redirect.Split('=')[1];
-                tran_info.partner_confirm_return = ConfirmOrder(trans_id, tran_info.partner_trans_id);
+                
                 Helper.Data.Insert("transactions", tran_info);
 
                 return Json(new { error_code = response.error_code, error_message = response.error_message, url_redirect = response.url_redirect }, JsonRequestBehavior.AllowGet);
@@ -129,6 +129,7 @@ namespace MoneyNow.Controllers
                 return View("Result");
             }
             string confirmBankNet = ConfirmOrder(trans_info.trans_id, trans_info.partner_trans_id);
+            trans_info.partner_confirm_return = confirmBankNet;
             trans_info.status = "PROCESSING";
             Helper.Data.Save("transactions", trans_info);
 
