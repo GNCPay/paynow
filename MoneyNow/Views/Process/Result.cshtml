@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Money Now - Chuyển tiền, nạp tiền MIỄN PHÍ";
+}
+
+<div class="row">
+    <div class="col-md-2 col-sm-12">
+        @* @Html.Action("Sent", "Plugin", null)*@
+    </div>
+    <div class="col-md-6 col-sm-12">
+        @*@Html.Action("Send","Plugin", null)*@
+    </div>
+    <div class="col-md-4 col-sm-12">
+        <div id="resultModal" class="modal fade">
+            <div id="bank-overlay" class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Kết quả giao dịch</h4>
+                    </div>
+                    <div class="modal-body bank_content">
+                        <h3>Giao dịch @ViewBag.Result! Bấm vào @Html.ActionLink("đây", "Index", "Home") để trở về trang chính</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script>
+        $('#resultModal').modal("show");
+    </script>
+}

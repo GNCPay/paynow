@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Money Now - Chuyển tiền, nạp tiền MIỄN PHÍ";
+}
+
+<div class="row">
+    <div class="col-md-2 col-sm-12">
+        @* @Html.Action("Sent", "Plugin", null)*@
+    </div>
+    <div class="col-md-6 col-sm-12">
+        @*@Html.Action("Send","Plugin", null)*@
+    </div>
+    <div class="col-md-4 col-sm-12">
+        @Html.Action("Receive", "Plugin", null)
+    </div>
+
+</div>
+@section scripts{
+    <script src="https://larsjung.de/jquery-qrcode/latest/jquery.qrcode-0.12.0.js"></script>
+    <script>
+        $('#result').html('');
+        $('#result').qrcode({
+            'size': 200,
+            "color": "#3a3",
+            "text": "http://moneynow.me/receiver/f0953rjdlkfjdt94u5ijldf"
+        });
+    </script>
+}

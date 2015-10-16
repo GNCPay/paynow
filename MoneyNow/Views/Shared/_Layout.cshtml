@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    @RenderSection("meta", required: false)
+
+    <meta name="description" content="Chuyển tiền MIỄN PHÍ tới bạn bè Facebook, Email, SMS" />
+    <meta name="keywords" content="MoneyNow, Chuyển tiền, Miễn phí" />
+
+    <meta name="author" content="GNC Pay" />
+    <meta name="copyright" content="GNC Pay" />
+    <meta name="application-name" content="Money Now" />
+    @Styles.Render("~/Content/css")
+    @*<link href="~/Content/htr-css.min.gz.css" rel="stylesheet" />*@
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <link href="~/Scripts/friendselector/jquery.fb.css" rel="stylesheet" />
+    <script src="~/Scripts/friendselector/jquery.fb.dialog.js"></script>
+    <script src="~/Scripts/friendselector/jquery.fb.friend-selector.js"></script>
+    <script src="~/Scripts/friendselector/facebook-friends.js"></script>
+    <script>
+        var userFullName;
+        var userEmail;
+        var userFacebookID;
+        var userAvatarUrl;
+       
+    </script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

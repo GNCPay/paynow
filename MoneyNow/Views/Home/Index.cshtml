@@ -1,0 +1,273 @@
+﻿@{
+    ViewBag.Title = "Money Now - Chuyển tiền, nạp tiền MIỄN PHÍ";
+}
+
+<div class="row">
+    <div class="col-md-2 col-sm-12">
+        @* @Html.Action("Sent", "Plugin", null)*@
+    </div>
+    <div class="col-md-6 col-sm-12">
+        @*@Html.Action("Send","Plugin", null)*@
+    </div>
+    <div class="col-md-4 col-sm-12">
+        @Html.Action("Send", "Plugin", null)
+    </div>
+
+</div>
+<div id="confirmModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Xác nhận giao dịch</h4>
+            </div>
+            <div class="modal-body">
+                <p>Bạn có chắc chắn muốn chuyển</p>
+                <p><span>Tới: <strong id="confirm_friends"></strong></span></p>
+                <p><span>Số tiền: </span><strong id="confirm_amount"></strong> đ/người</p>
+                <p><span>Tổng tiền: </span><strong id="confirm_total_amount"></strong> đ</p>
+                <div class="row">
+                    <div class="col-12-xs text-center">
+                        <button id="confirmModalYes" class="btn btn-success btn-md">Yes</button>
+                        <button id="confirmModalNo" class="btn btn-danger btn-md">No</button>
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<style>
+    #fb-root {
+        display: none;
+    }
+
+    .fb-send {
+        margin-left: 10px;
+    }
+
+        .fb-send, .fb-send iframe[style], .fb-like-box, .fb-like-box iframe[style] {
+            width: 100% !important;
+        }
+
+            .fb-send span, .fb-send iframe span[style], .fb-like-box span, .fb-like-box iframe span[style] {
+                width: 100% !important;
+            }
+
+    ._56z- {
+        width: 100%;
+    }
+</style>
+@section scripts{
+    <script>
+        function statusChangeCallback(response) {
+            if (response.status === 'connected') {
+                var access_token = FB.getAuthResponse()['accessToken'];
+                
+                FB.api('/me?fields=name,id,picture{url},email', function (response) {
+                    userFullName = response.name;
+                    userEmail = response.email;
+                    userFacebookID = response.id;
+                    userAvatarUrl = response.picture.data.url;
+                    FB.api('/me/picture?width=300', function (response) {
+                        userAvatarUrl = response.data.url;
+                        processLogin(userFacebookID, userFullName, userEmail, userAvatarUrl, access_token);
+                    });
+                });
+                FB.api('/me/taggable_friends?fields=id,name,picture&limit=1000', function (response) {
+                    for (i = 0; i < response.data.length; i++) {
+                        var friend = {};
+                        friend.id = response.data[i].id;
+                        friend.name = response.data[i].name;
+                        friend.image = response.data[i].picture.data.url;
+                        friends.push(friend);
+                    }
+                });
+            }
+            else {
+                FB.login(fbLoginCallback, { scope: 'public_profile,email,user_friends, publish_actions' });
+            }
+        }
+
+        var fbLoginCallback = function (response) {
+            if (response.status === 'connected') {
+                var access_token = FB.getAuthResponse()['accessToken'];
+
+                FB.api('/me?fields=name,id,picture{url},email', function (response) {
+                    userFullName = response.name;
+                    userEmail = response.email;
+                    userFacebookID = response.id;
+                    userAvatarUrl = response.picture.data.url;
+                    FB.api('/me/picture?width=300', function (response) {
+                        userAvatarUrl = response.data.url;
+                        processLogin(userFacebookID, userFullName, userEmail, userAvatarUrl, access_token);
+                    });
+                });
+                FB.api('/me/taggable_friends?fields=id,name,picture&limit=1000', function (response) {
+                    for (i = 0; i < response.data.length; i++) {
+                        var friend = {};
+                        friend.id = response.data[i].id;
+                        friend.name = response.data[i].name;
+                        friend.image = response.data[i].picture.data.url;
+                        friends.push(friend);
+                    }
+                });
+            }
+        }
+
+
+        // This function is called when someone finishes with the Login
+        // Button.  See the onlogin handler attached to it in the sample
+        // code below.
+        function checkLoginState() {
+            FB.getLoginStatus(function (response) {
+                statusChangeCallback(response);
+            });
+        }
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '1122340924460110',
+                xfbml: true,
+                version: 'v2.2'
+            });
+            //FB.login(fbLoginCallback, { scope: 'public_profile,email,user_friends, publish_actions' });
+            FB.getLoginStatus(function (response) {
+                statusChangeCallback(response);
+            });
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+        //function fbLogin() {
+
+        //}
+  
+    </script>
+    <script>
+
+        function processLogin(userFacebookID, userFullName, userEmail, userAvatarUrl, accessToken) {
+            $.ajax({
+                url: '/Process/LoginUser',
+                contentType: 'application/xml',
+                type: 'GET',
+                data: { user_id: userFacebookID, name: userFullName, email: userEmail, picture: userAvatarUrl, access_token: accessToken }
+            })
+                           .success(function (result) {
+                               return;
+                           })
+                           .error(function (jqXHR, textStatus, errorThrown) {
+                               return;
+                           });
+        }
+
+    </script>
+    <script>
+        $(document).ready(function () {
+            var amount;
+            var message;
+            var pass_code;
+            var bank;
+            var selectedFriends = [];
+        })
+    </script>
+    <script src="https://larsjung.de/jquery-qrcode/latest/jquery.qrcode-0.12.0.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/1.4.5/numeral.min.js"></script>
+    <script>
+        function sendMoneyFromATM() {
+            //alert(selectedFriends.length);
+            $.ajax({
+                url: '@Url.Action("send", "process")',
+                //string[] receiver, long amount, string message, string pass_code, string bank)
+                contentType: 'application/json; charset=utf-8',
+                type: 'GET',
+                dataType: 'json',
+                data: { receiver: JSON.stringify(selectedFriends), amount: amount, message: message, pass_code: pass_code, bank: bank },
+                //data: { receiver: selectedFriends, amount: amount, message: message, pass_code: pass_code, bank: bank },
+                timeout: 30000
+            })
+       .success(function (result) {
+           //NProgress.done();
+           alert(result.error_message);
+           if (result.error_code == "00") {
+               window.location = result.url_redirect;
+               return;
+           }
+           else {
+               alert(result.error_message);
+           }
+       })
+       .error(function (xhr, status) {
+           //NProgress.done();
+           alert("Không thể load dữ liệu. Vui lòng thử lại sau!");
+       });
+        };
+    </script>
+    <script>
+        function shareFacebook(tag_id, message, amount, code) {
+            FB.api(
+                        "/me/feed",
+                        "POST",
+                        {
+                            "message": message + '. Click để nhận tiền',
+                            "link": 'http://moneynow.me/receive/' + code,
+                            "caption": userFullName + ' gửi tới bạn ' + amount + 'đ',
+                            "tags": selectedFriends,
+                            "privacy": { 'value': 'SELF' }
+                        },
+                        function (response) {
+                            if (response && !response.error) {
+                                //alert(response);
+                            }
+                            else {
+                                console.log('oops something went wrong here!');
+                                alert(response);
+                            }
+                        });
+        };
+        selectedFriends = [];
+        $('.pay-by-atm')
+            .click(function (e) {
+                amount = $('#amount').val();
+                message = $('#message').val();
+                pass_code = $('#pass_code').val();
+                bank = $(this).data("bank");
+
+
+                $('#bankModal').modal("hide");
+                e.preventDefault();
+                // Gui yeu cau len server
+                // To use, just call the fbFriendSelector() function on a jQuery object and pass it two arguments:
+                // 1.) The JSON data returned from a https://graph.facebook.com/me/friends?access_token=abc API call
+                // 2.) An array of Facebook IDs for those friends that should have initial state of selected
+                $(this).fbFriendSelector(friends, selectedFriends);
+            })
+            // When the dialog is closed, it fires a 'friendSelection' event, which you should bind to
+            // The event 'data' is an array of objects in form {name: 'First Last', id: 123}
+            .bind('friendSelection', function (e, data) {
+                friendString = ''
+                selectedFriends = [];
+                $.each(data, function () {
+                    friendString += this.name + ', ';
+                    selectedFriends.push(this);
+                    //shareFacebook(this.id, message, amount, "1234");
+                });
+                if (selectedFriends.length) {
+                    $('#confirm_amount').html(numeral(amount).format('0,0'));
+                    $('#confirm_friends').html(friendString);
+                    $('#confirm_total_amount').html(numeral(amount * selectedFriends.length).format('0,0'));
+                    $('#confirmModal').modal("show");
+                    //alert('Gửi lệnh chuyển tiền tới: ' + friendString.substring(0, friendString.length - 2));
+                }
+            });
+        $('#confirmModalYes').click(function () {
+            sendMoneyFromATM();
+        })
+        $('#confirmModalNo').click(function () {
+            $('#confirmModal').modal("hide");
+        })
+    </script>
+}
