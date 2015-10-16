@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   @RenderSection("meta",required: false)
+
+    <meta name="description" content="Chuyển tiền MIỄN PHÍ tới bạn bè Facebook, Email, SMS" />
+    <meta name="keywords" content="MoneyNow, Chuyển tiền, Miễn phí" />
+
+    <meta name="author" content="GNC Pay" />
+    <meta name="copyright" content="GNC Pay" />
+    <meta name="application-name" content="Money Now" />
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @*<link href="~/Content/htr-css.min.gz.css" rel="stylesheet" />*@
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+    <script>
+        var $access_token;
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '1715361842025503',//'1710086362553051',
+                xfbml: true,
+                version: 'v2.4'
+            });
+
+            function onLogin(response) {
+                if (response.status == 'connected') {
+                    FB.api('/me?fields=name,picture, cover', function (data) {
+                        //var welcomeBlock = document.getElementById('fb-welcome');
+                        //welcomeBlock.innerHTML = data.name;
+                        //$('#profile_picture').attr("src", data.cover.source);
+                    });
+                    var $user_id = FB.getAuthResponse()['userID'];
+                    $access_token = FB.getAuthResponse()['accessToken'];
+                    processLogin($user_id, $access_token);
+                    //alert($access_token);
+                }
+            }
+
+            FB.getLoginStatus(function (response) {
+                // Check login status on load, and if the user is
+                // already logged in, go directly to the welcome message.
+                if (response.status == 'connected') {
+                    onLogin(response);
+                } else {
+                    // Otherwise, show Login dialog first.
+                    FB.login(function (response) {
+                        onLogin(response);
+                    }, { scope: 'user_friends, user_birthday, email, user_location' });
+                }
+            });
+            //FB.ui({
+            //    method: 'send',
+            //    link: 'http://www.nytimes.com/interactive/2015/04/15/travel/europe-favorite-streets.html',
+            //});
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+        function processLogin($user_id, $access_token) {
+            $.ajax({
+                url: '/Process/LoginUser',
+                contentType: 'application/xml',
+                type: 'GET',
+                data: { user_id: $user_id, access_token: $access_token }
+            })
+
+                           .success(function (result) {
+                               return;
+                           })
+                           .error(function (jqXHR, textStatus, errorThrown) {
+                               return;
+                           });
+        }
+    </script>
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,52 @@
+﻿body {
+    background: url(http://www.fastacash.com/wp-content/themes/fastacash/images/home.jpg) no-repeat center center fixed; 
+    /*background-color: #72B2DE;*/
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.panel-default {
+    /*opacity: 0.9;*/
+    
+}
+.panel{
+    margin-top: 30px;
+    background-color:transparent;
+}
+
+.form-group.last {
+    margin-bottom: 0px;
+}
+
+#form > div {
+    margin-bottom: 25px;
+}
+
+    #form > div:last-child {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+.send-form > .input-group > .input-group-addon{
+    color:red;
+}
+
+.img-sender{
+    width:40px;
+}
+
+.list-group-item:first-child {
+    margin-bottom: 4px;
+}
+.list-group{
+    margin-top: 30px;
+}
+.hovercard{
+    background-color:white;
+    padding-top:10px;
+    padding-bottom:10px;
+}
+.bottom{
+    margin-top:10px;
+}

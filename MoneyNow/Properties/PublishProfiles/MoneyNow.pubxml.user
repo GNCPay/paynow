@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>c:\data\ewallet\moneynow</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>09/23/2015 15:10:27</publishTime>
+    </File>
+    <File Include="bin/eWallet.Common.dll">
+      <publishTime>08/12/2015 22:16:23</publishTime>
+    </File>
+    <File Include="bin/eWallet.Data.dll">
+      <publishTime>09/12/2015 21:53:16</publishTime>
+    </File>
+    <File Include="bin/Facebook.dll">
+      <publishTime>10/16/2015 11:26:31</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.Identity.Core.dll">
+      <publishTime>10/16/2015 11:34:18</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.Identity.Owin.dll">
+      <publishTime>10/16/2015 11:34:29</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>09/23/2015 15:10:37</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.dll">
+      <publishTime>10/16/2015 11:26:16</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Cookies.dll">
+      <publishTime>10/16/2015 11:34:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.dll">
+      <publishTime>10/16/2015 11:26:19</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Facebook.dll">
+      <publishTime>10/16/2015 11:26:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.OAuth.dll">
+      <publishTime>10/16/2015 11:34:26</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>09/23/2015 15:10:26</publishTime>
+    </File>
+    <File Include="bin/MoneyNow.dll">
+      <publishTime>10/16/2015 14:54:56</publishTime>
+    </File>
+    <File Include="bin/MongoDB.Bson.dll">
+      <publishTime>03/27/2015 20:15:03</publishTime>
+    </File>
+    <File Include="bin/MongoDB.Driver.dll">
+      <publishTime>03/27/2015 20:15:03</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>09/23/2015 15:10:33</publishTime>
+    </File>
+    <File Include="bin/Owin.dll">
+      <publishTime>10/16/2015 11:26:13</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>09/23/2015 15:10:35</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>09/23/2015 15:10:35</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>09/23/2015 15:10:35</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>09/23/2015 15:10:35</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>09/23/2015 15:10:35</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>09/23/2015 15:10:35</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>09/23/2015 15:10:35</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>09/23/2015 15:10:36</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>09/23/2015 15:10:36</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>09/23/2015 15:10:36</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>09/23/2015 15:10:36</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>09/23/2015 15:10:36</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>09/23/2015 15:10:25</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>09/23/2015 15:10:26</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>09/23/2015 15:10:25</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>09/23/2015 15:10:24</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>09/23/2015 15:10:25</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>09/23/2015 15:10:25</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>09/23/2015 15:10:25</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>09/23/2015 15:10:28</publishTime>
+    </File>
+    <File Include="Content/bootstrap.css">
+      <publishTime>09/23/2015 15:10:12</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css">
+      <publishTime>09/23/2015 15:10:11</publishTime>
+    </File>
+    <File Include="Content/htr-css.min.gz.css">
+      <publishTime>09/23/2015 15:48:09</publishTime>
+    </File>
+    <File Include="Content/Site.css">
+      <publishTime>09/24/2015 15:59:35</publishTime>
+    </File>
+    <File Include="favicon.ico">
+      <publishTime>09/23/2015 15:10:01</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.eot">
+      <publishTime>09/23/2015 15:10:11</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.svg">
+      <publishTime>09/23/2015 15:10:10</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>09/23/2015 15:10:10</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff">
+      <publishTime>09/23/2015 15:10:09</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>09/23/2015 15:10:01</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>10/16/2015 11:34:31</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.js">
+      <publishTime>09/23/2015 15:10:09</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.min.js">
+      <publishTime>09/23/2015 15:10:08</publishTime>
+    </File>
+    <File Include="Scripts/friendselector/check.gif">
+      <publishTime>10/10/2011 13:38:56</publishTime>
+    </File>
+    <File Include="Scripts/friendselector/facebook-friends.js">
+      <publishTime>10/15/2015 12:07:12</publishTime>
+    </File>
+    <File Include="Scripts/friendselector/hover.gif">
+      <publishTime>10/10/2011 13:38:56</publishTime>
+    </File>
+    <File Include="Scripts/friendselector/jquery.fb.css">
+      <publishTime>10/10/2011 13:38:56</publishTime>
+    </File>
+    <File Include="Scripts/friendselector/jquery.fb.dialog.js">
+      <publishTime>10/15/2015 12:08:39</publishTime>
+    </File>
+    <File Include="Scripts/friendselector/jquery.fb.friend-selector.js">
+      <publishTime>10/15/2015 16:17:41</publishTime>
+    </File>
+    <File Include="Scripts/friendselector/selected.gif">
+      <publishTime>10/10/2011 13:38:56</publishTime>
+    </File>
+    <File Include="Scripts/friendselector/sprite.png">
+      <publishTime>10/10/2011 13:38:56</publishTime>
+    </File>
+    <File Include="Scripts/friendselector/sprite2.png">
+      <publishTime>10/10/2011 13:38:56</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.js">
+      <publishTime>09/23/2015 15:10:15</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.min.js">
+      <publishTime>09/23/2015 15:10:14</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.min.map">
+      <publishTime>09/23/2015 15:10:14</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.js">
+      <publishTime>09/23/2015 15:10:29</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.min.js">
+      <publishTime>09/23/2015 15:10:29</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.js">
+      <publishTime>09/23/2015 15:10:31</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.min.js">
+      <publishTime>09/23/2015 15:10:30</publishTime>
+    </File>
+    <File Include="Scripts/modernizr-2.6.2.js">
+      <publishTime>09/23/2015 15:10:27</publishTime>
+    </File>
+    <File Include="Scripts/respond.js">
+      <publishTime>09/23/2015 15:10:28</publishTime>
+    </File>
+    <File Include="Scripts/respond.min.js">
+      <publishTime>09/23/2015 15:10:28</publishTime>
+    </File>
+    <File Include="Scripts/_references.js">
+      <publishTime>10/15/2015 11:57:31</publishTime>
+    </File>
+    <File Include="Service References/banknet/MoneyNow.banknet.ConfirmTransactionResultResponse.datasource">
+      <publishTime>10/15/2015 16:43:59</publishTime>
+    </File>
+    <File Include="Service References/banknet/MoneyNow.banknet.QuerryBillStatusResponse.datasource">
+      <publishTime>10/15/2015 16:43:59</publishTime>
+    </File>
+    <File Include="Service References/banknet/MoneyNow.banknet.Send_GoodInfoResponse.datasource">
+      <publishTime>10/15/2015 16:44:00</publishTime>
+    </File>
+    <File Include="Service References/banknet/MoneyNow.banknet.Send_GoodInfo_Ext2Response.datasource">
+      <publishTime>10/15/2015 16:44:00</publishTime>
+    </File>
+    <File Include="Service References/banknet/MoneyNow.banknet.Send_GoodInfo_ExtResponse.datasource">
+      <publishTime>10/15/2015 16:44:00</publishTime>
+    </File>
+    <File Include="Views/Home/About.cshtml">
+      <publishTime>09/23/2015 15:10:01</publishTime>
+    </File>
+    <File Include="Views/Home/Contact.cshtml">
+      <publishTime>09/23/2015 15:10:01</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>10/16/2015 14:45:18</publishTime>
+    </File>
+    <File Include="Views/Home/Receive.cshtml">
+      <publishTime>10/15/2015 14:37:17</publishTime>
+    </File>
+    <File Include="Views/Plugin/Receive.cshtml">
+      <publishTime>10/15/2015 14:37:05</publishTime>
+    </File>
+    <File Include="Views/Plugin/Send.cshtml">
+      <publishTime>10/16/2015 11:55:22</publishTime>
+    </File>
+    <File Include="Views/Plugin/Sent.cshtml">
+      <publishTime>09/24/2015 16:03:00</publishTime>
+    </File>
+    <File Include="Views/Plugin/Topup.cshtml">
+      <publishTime>09/24/2015 16:52:34</publishTime>
+    </File>
+    <File Include="Views/Process/Result.cshtml">
+      <publishTime>10/16/2015 11:13:40</publishTime>
+    </File>
+    <File Include="Views/Shared/Error.cshtml">
+      <publishTime>09/23/2015 15:10:01</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>10/16/2015 11:15:13</publishTime>
+    </File>
+    <File Include="Views/Shared/_LayoutPlugin.cshtml">
+      <publishTime>09/24/2015 11:42:34</publishTime>
+    </File>
+    <File Include="Views/Web.config">
+      <publishTime>09/23/2015 15:10:01</publishTime>
+    </File>
+    <File Include="Views/_ViewStart.cshtml">
+      <publishTime>09/23/2015 15:10:01</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>10/16/2015 14:54:57</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
